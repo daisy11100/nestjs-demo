@@ -2,17 +2,17 @@
  * @Author: duanxinxin
  * @Date: 2022-08-11 22:50:47
  * @LastEditors: duanxinxin
- * @LastEditTime: 2022-08-12 15:18:04
+ * @LastEditTime: 2022-08-14 22:56:57
  * @Description:
  */
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { UserController } from './user/user.controller';
+import { HelloModule } from './modules/hello/hello.module';
 
 @Module({
-  imports: [],
-  controllers: [AppController, UserController],
+  imports: [HelloModule],
+  controllers: [AppController],
   providers: [AppService],
 })
 export class AppModule {}
