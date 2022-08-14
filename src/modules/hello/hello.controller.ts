@@ -2,7 +2,7 @@
  * @Author: duanxinxin
  * @Date: 2022-08-11 23:28:14
  * @LastEditors: duanxinxin
- * @LastEditTime: 2022-08-11 23:53:29
+ * @LastEditTime: 2022-08-12 15:35:57
  * @Description:
  */
 import {
@@ -16,7 +16,6 @@ import {
   Headers,
   Query,
 } from '@nestjs/common';
-import { ModuleTokenFactory } from '@nestjs/core/injector/module-token-factory';
 import { HelloService } from './hello.service';
 
 @Controller('/hello')
