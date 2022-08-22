@@ -2,7 +2,7 @@
  * @Author: duanxinxin
  * @Date: 2022-08-11 23:28:14
  * @LastEditors: duanxinxin
- * @LastEditTime: 2022-08-14 23:45:11
+ * @LastEditTime: 2022-08-22 23:50:31
  * @Description:
  */
 import {
@@ -15,6 +15,7 @@ import {
   Param,
   Headers,
   Query,
+  ParseIntPipe,
 } from '@nestjs/common';
 import {
   ApiResponse,
@@ -58,7 +59,9 @@ export class HelloController {
   @Patch(':id')
   @ApiParam({ name: 'id' })
   @ApiBody({ description: '输入message' })
-  update(@Param() { id }, @Body() { message }): string {
+  //通过管道对数据进行处理（这里用到了nest自带的管道）
+  update(@Param('id', new ParseIntPipe()) id, @Body() { message }): string {
+    console.log(typeof id);
     return this.helloService.update(id, message);
   }
 
