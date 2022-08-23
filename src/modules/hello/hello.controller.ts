@@ -2,7 +2,7 @@
  * @Author: duanxinxin
  * @Date: 2022-08-11 23:28:14
  * @LastEditors: duanxinxin
- * @LastEditTime: 2022-08-22 23:50:31
+ * @LastEditTime: 2022-08-23 15:26:52
  * @Description:
  */
 import {
@@ -16,6 +16,7 @@ import {
   Headers,
   Query,
   ParseIntPipe,
+  UseInterceptors,
 } from '@nestjs/common';
 import {
   ApiResponse,
@@ -27,10 +28,12 @@ import {
 } from '@nestjs/swagger';
 import { HelloService } from './hello.service';
 import { Hello, UserRole } from './classes/hello';
+import { LoggingInterceptor } from 'src/common/interceptor/logging.interceptor';
 
 @ApiBearerAuth()
 @ApiTags('hello')
 @Controller('/hello')
+@UseInterceptors(LoggingInterceptor)
 export class HelloController {
   constructor(private readonly helloService: HelloService) {}
 

@@ -2,7 +2,7 @@
  * @Author: duanxinxin
  * @Date: 2022-08-11 22:50:47
  * @LastEditors: duanxinxin
- * @LastEditTime: 2022-08-15 00:04:13
+ * @LastEditTime: 2022-08-23 11:05:11
  * @Description:
  */
 import { Module, MiddlewareConsumer, RequestMethod } from '@nestjs/common';
@@ -10,9 +10,10 @@ import { LoggerMiddleware } from './common/middleware/logger.middleware';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { HelloModule } from './modules/hello/hello.module';
+import { RoleGuardModule } from './modules/role-guard/role-guard.module';
 
 @Module({
-  imports: [HelloModule],
+  imports: [HelloModule, RoleGuardModule],
   controllers: [AppController],
   providers: [AppService],
 })

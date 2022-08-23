@@ -2,7 +2,7 @@
  * @Author: duanxinxin
  * @Date: 2022-08-12 15:26:11
  * @LastEditors: duanxinxin
- * @LastEditTime: 2022-08-22 23:51:46
+ * @LastEditTime: 2022-08-23 19:32:03
  * @Description:
  */
 import { NestFactory } from '@nestjs/core';
@@ -19,7 +19,7 @@ async function bootstrap() {
   const app = await NestFactory.create<NestFastifyApplication>(AppModule);
 
   //全局过滤器
-  app.useGlobalFilters(new HttpExceptionFilter());
+  // app.useGlobalFilters(new HttpExceptionFilter());
 
   app.useGlobalPipes(new ValidationPipe());
 

@@ -2,15 +2,20 @@
  * @Author: duanxinxin
  * @Date: 2022-08-11 23:27:24
  * @LastEditors: duanxinxin
- * @LastEditTime: 2022-08-11 23:51:56
+ * @LastEditTime: 2022-08-23 19:33:12
  * @Description:
  */
 
-import { Injectable } from '@nestjs/common';
+import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 
 @Injectable()
 export class HelloService {
   fetch(id): string {
+    // 局部异常处理
+    // throw new HttpException(
+    //   { errcode: 10000, errmsg: '您无权访问' },
+    //   HttpStatus.FORBIDDEN,
+    // );
     return `hello world ${id}`;
   }
 
