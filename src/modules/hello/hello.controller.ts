@@ -2,7 +2,7 @@
  * @Author: duanxinxin
  * @Date: 2022-08-11 23:28:14
  * @LastEditors: duanxinxin
- * @LastEditTime: 2022-08-23 15:26:52
+ * @LastEditTime: 2022-09-13 17:07:57
  * @Description:
  */
 import {
@@ -17,6 +17,8 @@ import {
   Query,
   ParseIntPipe,
   UseInterceptors,
+  UseFilters,
+  ForbiddenException,
 } from '@nestjs/common';
 import {
   ApiResponse,
@@ -29,6 +31,7 @@ import {
 import { HelloService } from './hello.service';
 import { Hello, UserRole } from './classes/hello';
 import { LoggingInterceptor } from 'src/common/interceptor/logging.interceptor';
+import { HttpExceptionFilter } from 'src/common/filters/http-exception.filter';
 
 @ApiBearerAuth()
 @ApiTags('hello')
@@ -49,6 +52,7 @@ export class HelloController {
   fetch(@Query() { id }, @Headers('token') token): string {
     console.log(token);
     return this.helloService.fetch(id);
+    // throw new ForbiddenException();
   }
 
   //创建

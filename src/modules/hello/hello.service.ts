@@ -2,7 +2,7 @@
  * @Author: duanxinxin
  * @Date: 2022-08-11 23:27:24
  * @LastEditors: duanxinxin
- * @LastEditTime: 2022-08-23 19:33:12
+ * @LastEditTime: 2022-09-13 11:24:28
  * @Description:
  */
 
@@ -12,10 +12,7 @@ import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 export class HelloService {
   fetch(id): string {
     // 局部异常处理
-    // throw new HttpException(
-    //   { errcode: 10000, errmsg: '您无权访问' },
-    //   HttpStatus.FORBIDDEN,
-    // );
+    // throw new HttpException('您无权访问', HttpStatus.FORBIDDEN);
     return `hello world ${id}`;
   }
 
